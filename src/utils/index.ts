@@ -58,10 +58,7 @@ export const fixIndex = (index: number, max: number = 12): number => {
  * @returns {number} 该地支对应的宫位索引序号
  */
 export const earthlyBranchIndexToPalaceIndex = (earthlyBranchName: EarthlyBranchName): number => {
-  const earthlyBranch = kot<EarthlyBranchKey>(earthlyBranchName, 'Earthly');
-  const yin = kot<EarthlyBranchKey>('yinEarthly', 'Earthly');
-
-  return fixIndex(EARTHLY_BRANCHES.indexOf(earthlyBranch) - EARTHLY_BRANCHES.indexOf(yin));
+    throw new Error("STUB");
 };
 
 /**
@@ -94,7 +91,7 @@ export const getMutagensByHeavenlyStem = (heavenlyStemName: HeavenlyStemName): S
   const heavenlyStem = kot<HeavenlyStemKey>(heavenlyStemName, 'Heavenly');
   const target = getTargetMutagens(heavenlyStem);
 
-  return target.map((star) => t<StarName>(star));
+  return target.map((star) => { throw new Error("STUB"); });
 };
 
 /**
@@ -147,15 +144,7 @@ export const fixLunarDayIndex = (lunarDay: number, timeIndex: number) => (timeIn
  * @returns {FunctionalStar[][]} 合并后的星耀
  */
 export const mergeStars = (...stars: FunctionalStar[][][]) => {
-  const finalStars = initStars();
-
-  stars.forEach((item) => {
-    item.forEach((subItem, index) => {
-      Array.prototype.push.apply(finalStars[index], subItem);
-    });
-  });
-
-  return finalStars;
+    throw new Error("STUB");
 };
 
 /**
@@ -212,20 +201,5 @@ export const getAgeIndex = (earthlyBranchName: EarthlyBranchName) => {
  * @returns 干支纪年字符串
  */
 export const translateChineseDate = (chineseDate: HeavenlyStemAndEarthlyBranchDate): string => {
-  const { yearly, monthly, daily, hourly } = chineseDate;
-
-  if (
-    yearly.some((item) => (t(kot(item)) as string).length > 1) ||
-    monthly.some((item) => (t(kot(item)) as string).length > 1) ||
-    daily.some((item) => (t(kot(item)) as string).length > 1) ||
-    hourly.some((item) => (t(kot(item)) as string).length > 1)
-  ) {
-    return `${yearly.map((item) => t(kot(item))).join(' ')} - ${monthly.map((item) => t(kot(item))).join(' ')} - ${daily
-      .map((item) => t(kot(item)))
-      .join(' ')} - ${hourly.map((item) => t(kot(item))).join(' ')}`;
-  }
-
-  return `${yearly.map((item) => t(kot(item))).join('')} ${monthly.map((item) => t(kot(item))).join('')} ${daily
-    .map((item) => t(kot(item)))
-    .join('')} ${hourly.map((item) => t(kot(item))).join('')}`;
+    throw new Error("STUB");
 };

@@ -67,48 +67,7 @@ export const getChangesheng12StartIndex = (fiveElementClassName: FiveElementsCla
  * @returns 长生12神从寅宫开始的顺序
  */
 export const getchangsheng12 = (param: AstrolabeParam): StarName[] => {
-  const { solarDate, gender } = param;
-  const changsheng12: StarName[] = [];
-  const genderKey = kot<GenderKey>(gender!);
-  const { yearly } = getHeavenlyStemAndEarthlyBranchBySolarDate(solarDate, 0, {
-    year: getConfig().yearDivide,
-  });
-  const [, earthlyBranchNameOfYear] = yearly;
-  const earthlyBranchOfYear = kot<EarthlyBranchKey>(earthlyBranchNameOfYear, 'Earthly');
-  // 获取命宫干支，需要通过命宫干支计算五行局
-  const { heavenlyStemOfSoul, earthlyBranchOfSoul } = getSoulAndBody(param);
-  // 获取五行局，通过五行局获取起运年龄
-  const fiveElementClass = getFiveElementsClass(heavenlyStemOfSoul, earthlyBranchOfSoul);
-  // 长生12神顺序
-  const stars: StarKey[] = [
-    'changsheng',
-    'muyu',
-    'guandai',
-    'linguan',
-    'diwang',
-    'shuai',
-    'bing',
-    'si',
-    'mu',
-    'jue',
-    'tai',
-    'yang',
-  ];
-  const startIdx = getChangesheng12StartIndex(fiveElementClass);
-
-  for (let i = 0; i < stars.length; i++) {
-    let idx = 0;
-
-    if (GENDER[genderKey] === earthlyBranches[earthlyBranchOfYear].yinYang) {
-      idx = fixIndex(i + startIdx);
-    } else {
-      idx = fixIndex(startIdx - i);
-    }
-
-    changsheng12[idx] = t(stars[i]);
-  }
-
-  return changsheng12;
+    throw new Error("STUB");
 };
 
 /**
@@ -121,40 +80,7 @@ export const getchangsheng12 = (param: AstrolabeParam): StarName[] => {
  * @returns 博士12神从寅宫开始的顺序
  */
 export const getBoShi12 = (solarDateStr: string, gender: GenderName): StarName[] => {
-  const genderKey = kot<GenderKey>(gender);
-  const { yearly } = getHeavenlyStemAndEarthlyBranchBySolarDate(solarDateStr, 0, {
-    year: getConfig().yearDivide,
-  });
-  const [heavenlyStemNameOfYear, earthlyBranchNameOfYear] = yearly;
-  const earthlyBranchOfYear = kot<EarthlyBranchKey>(earthlyBranchNameOfYear, 'Earthly');
-  // 博士12神的顺序
-  const stars: StarKey[] = [
-    'boshi',
-    'lishi',
-    'qinglong',
-    'xiaohao',
-    'jiangjun',
-    'zhoushu',
-    'faylian',
-    'xishen',
-    'bingfu',
-    'dahao',
-    'fubing',
-    'guanfu',
-  ];
-  const { luIndex } = getLuYangTuoMaIndex(heavenlyStemNameOfYear, earthlyBranchNameOfYear);
-  const boshi12: StarName[] = [];
-
-  for (let i = 0; i < stars.length; i++) {
-    // 阳男阴女顺行，阴男阳女逆部
-    const idx = fixIndex(
-      GENDER[genderKey] === earthlyBranches[earthlyBranchOfYear].yinYang ? luIndex + i : luIndex - i,
-    );
-
-    boshi12[idx] = t(stars[i]);
-  }
-
-  return boshi12;
+    throw new Error("STUB");
 };
 
 /**

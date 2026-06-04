@@ -83,25 +83,15 @@ export default class FunctionalStar implements IFunctionalStar {
   private _astrolabe?: IFunctionalAstrolabe;
 
   constructor(data: Star) {
-    this.name = data.name;
-    this.type = data.type;
-    this.scope = data.scope;
-    this.brightness = data.brightness;
-    this.mutagen = data.mutagen;
-
-    return this;
+      throw new Error("STUB");
   }
 
   oppositePalace = (): IFunctionalPalace | undefined => {
-    if (!this._palace || !this._astrolabe) {
-      return undefined;
-    }
-
-    return this._astrolabe.surroundedPalaces(this._palace.name).opposite;
+      throw new Error("STUB");
   };
 
   setPalace = (p: IFunctionalPalace) => {
-    this._palace = p;
+      throw new Error("STUB");
   };
 
   setAstrolabe = (a: IFunctionalAstrolabe) => {
@@ -111,28 +101,14 @@ export default class FunctionalStar implements IFunctionalStar {
   palace = (): IFunctionalPalace | undefined => this._palace;
 
   surroundedPalaces = (): IFunctionalSurpalaces | undefined => {
-    if (!this._palace) {
-      return undefined;
-    }
-
-    return this._astrolabe?.surroundedPalaces(this._palace.name);
+      throw new Error("STUB");
   };
 
   withMutagen = (mutagen: Mutagen | Mutagen[]): boolean => {
-    if (Array.isArray(mutagen)) {
-      return mutagen.some((mtg) => this.mutagen && kot<MutagenKey>(mtg) === kot<MutagenKey>(this.mutagen));
-    }
-
-    return !!this.mutagen && kot<MutagenKey>(mutagen) === kot<MutagenKey>(this.mutagen);
+      throw new Error("STUB");
   };
 
   withBrightness = (brightness: Brightness | Brightness[]): boolean => {
-    if (Array.isArray(brightness)) {
-      return brightness.some(
-        (brit) => this.brightness != undefined && kot<BrightnessKey>(brit) === kot<BrightnessKey>(this.brightness),
-      );
-    }
-
-    return !!this.brightness && kot<BrightnessKey>(brightness) === kot<BrightnessKey>(this.brightness);
+      throw new Error("STUB");
   };
 }

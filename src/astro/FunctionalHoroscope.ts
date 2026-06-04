@@ -7,23 +7,7 @@ import { mergeStars } from '../utils';
 import { MUTAGEN } from '../data';
 
 const _getHoroscopePalaceIndex = ($: IFunctionalHoroscope, scope: Scope, palaceName: PalaceName) => {
-  let palaceIndex = -1;
-
-  if (scope === 'origin') {
-    $.astrolabe.palaces.some((p, idx) => {
-      if (p.name === palaceName) {
-        palaceIndex = idx;
-
-        return true;
-      }
-
-      return false;
-    });
-  } else {
-    palaceIndex = $[scope].palaceNames.indexOf(palaceName);
-  }
-
-  return palaceIndex;
+    throw new Error("STUB");
 };
 
 export interface IFunctionalHoroscope extends Horoscope {
@@ -120,21 +104,11 @@ export default class FunctionalHoroscope implements IFunctionalHoroscope {
   astrolabe;
 
   constructor(data: Horoscope, astrolabe: IFunctionalAstrolabe) {
-    this.lunarDate = data.lunarDate;
-    this.solarDate = data.solarDate;
-    this.decadal = data.decadal;
-    this.age = data.age;
-    this.yearly = data.yearly;
-    this.monthly = data.monthly;
-    this.daily = data.daily;
-    this.hourly = data.hourly;
-    this.astrolabe = astrolabe;
-
-    return this;
+      throw new Error("STUB");
   }
 
   agePalace = () => {
-    return this.astrolabe.palace(this.age.index);
+      throw new Error("STUB");
   };
 
   palace = (palaceName: PalaceName, scope: Scope) => {
@@ -148,65 +122,22 @@ export default class FunctionalHoroscope implements IFunctionalHoroscope {
   };
 
   surroundPalaces = (palaceName: PalaceName, scope: Scope) => {
-    if (scope === 'origin') {
-      return this.astrolabe.surroundedPalaces(palaceName);
-    }
-
-    const targetPalaceindex = this[scope].palaceNames.indexOf(palaceName);
-
-    return this.astrolabe.surroundedPalaces(targetPalaceindex);
+      throw new Error("STUB");
   };
 
   hasHoroscopeStars = (palaceName: PalaceName, scope: Scope, horoscopeStar: StarName[]) => {
-    if (!this.decadal.stars || !this.yearly.stars) {
-      return false;
-    }
-
-    const palaceIndex = _getHoroscopePalaceIndex(this, scope, palaceName);
-    const stars = mergeStars(this.decadal.stars, this.yearly.stars)[palaceIndex];
-    const starKeys = stars.map((item) => kot<StarKey>(item.name));
-    const horoscopeStarKeys = horoscopeStar.map((item) => kot<StarKey>(item));
-
-    return horoscopeStarKeys.every((star) => starKeys.includes(star));
+      throw new Error("STUB");
   };
 
   notHaveHoroscopeStars = (palaceName: PalaceName, scope: Scope, horoscopeStar: StarName[]) => {
-    if (!this.decadal.stars || !this.yearly.stars) {
-      return false;
-    }
-
-    const palaceIndex = _getHoroscopePalaceIndex(this, scope, palaceName);
-    const stars = mergeStars(this.decadal.stars, this.yearly.stars)[palaceIndex];
-    const starKeys = stars.map((item) => kot<StarKey>(item.name));
-    const horoscopeStarKeys = horoscopeStar.map((item) => kot<StarKey>(item));
-
-    return horoscopeStarKeys.every((star) => !starKeys.includes(star));
+      throw new Error("STUB");
   };
 
   hasOneOfHoroscopeStars = (palaceName: PalaceName, scope: Scope, horoscopeStar: StarName[]) => {
-    if (!this.decadal.stars || !this.yearly.stars) {
-      return false;
-    }
-
-    const palaceIndex = _getHoroscopePalaceIndex(this, scope, palaceName);
-    const stars = mergeStars(this.decadal.stars, this.yearly.stars)[palaceIndex];
-    const starKeys = stars.map((item) => kot<StarKey>(item.name));
-    const horoscopeStarKeys = horoscopeStar.map((item) => kot<StarKey>(item));
-
-    return horoscopeStarKeys.some((star) => starKeys.includes(star));
+      throw new Error("STUB");
   };
 
   hasHoroscopeMutagen = (palaceName: PalaceName, scope: Scope, horoscopeMutagen: Mutagen) => {
-    if (scope === 'origin') {
-      return false;
-    }
-
-    const palaceIndex = _getHoroscopePalaceIndex(this, scope, palaceName);
-    const majorStars = this.astrolabe.palace(palaceIndex)?.majorStars ?? [];
-    const minorStars = this.astrolabe.palace(palaceIndex)?.minorStars ?? [];
-    const stars = mergeStars([majorStars], [minorStars])[0].map((star) => kot<StarKey>(star.name));
-    const mutagenIndex = MUTAGEN.indexOf(kot<MutagenKey>(horoscopeMutagen));
-
-    return stars.includes(kot<StarKey>(this[scope].mutagen[mutagenIndex]));
+      throw new Error("STUB");
   };
 }

@@ -196,140 +196,44 @@ export default class FunctionalPalace implements IFunctionalPalace {
   ages;
 
   constructor(data: Palace) {
-    this.index = data.index;
-    this.name = data.name;
-    this.isBodyPalace = data.isBodyPalace;
-    this.isOriginalPalace = data.isOriginalPalace;
-    this.heavenlyStem = data.heavenlyStem;
-    this.earthlyBranch = data.earthlyBranch;
-    this.majorStars = data.majorStars;
-    this.minorStars = data.minorStars;
-    this.adjectiveStars = data.adjectiveStars;
-    this.changsheng12 = data.changsheng12;
-    this.boshi12 = data.boshi12;
-    this.jiangqian12 = data.jiangqian12;
-    this.suiqian12 = data.suiqian12;
-    this.decadal = data.decadal;
-    this.ages = data.ages;
-
-    return this;
+      throw new Error("STUB");
   }
 
-  has = (stars: StarName[]): boolean => hasStars(this, stars);
-  notHave = (stars: StarName[]): boolean => notHaveStars(this, stars);
-  hasOneOf = (stars: StarName[]): boolean => hasOneOfStars(this, stars);
-  hasMutagen = (mutagen: Mutagen): boolean => hasMutagenInPlace(this, mutagen);
-  notHaveMutagen = (mutagen: Mutagen): boolean => notHaveMutagenInPalce(this, mutagen);
+  has = (stars: StarName[]): boolean => { throw new Error("STUB"); };
+  notHave = (stars: StarName[]): boolean => { throw new Error("STUB"); };
+  hasOneOf = (stars: StarName[]): boolean => { throw new Error("STUB"); };
+  hasMutagen = (mutagen: Mutagen): boolean => { throw new Error("STUB"); };
+  notHaveMutagen = (mutagen: Mutagen): boolean => { throw new Error("STUB"); };
   isEmpty = (excludeStars?: StarName[]) => {
-    if (this.majorStars?.filter((star) => star.type === 'major').length) {
-      return false;
-    }
-
-    if (excludeStars?.length && this.hasOneOf(excludeStars)) {
-      return false;
-    }
-
-    return true;
+      throw new Error("STUB");
   };
   setAstrolabe = (astro: IFunctionalAstrolabe) => (this._astrolabe = astro);
-  astrolabe = () => this._astrolabe;
+  astrolabe = () => { throw new Error("STUB"); };
   fliesTo = (to: number | PalaceName, withMutagens: Mutagen | Mutagen[]) => {
-    const toPalace = this.astrolabe()?.palace(to);
-
-    if (!toPalace) {
-      return false;
-    }
-
-    const { heavenlyStem } = this;
-    const stars = mutagensToStars(heavenlyStem, withMutagens);
-
-    if (!stars || !stars.length) {
-      return false;
-    }
-
-    return toPalace.has(stars);
+      throw new Error("STUB");
   };
 
   fliesOneOfTo = (to: number | PalaceName, withMutagens: Mutagen[]) => {
-    const toPalace = this.astrolabe()?.palace(to);
-
-    if (!toPalace) {
-      return false;
-    }
-    const { heavenlyStem } = this;
-    const stars = mutagensToStars(heavenlyStem, withMutagens);
-
-    if (!stars || !stars.length) {
-      return true;
-    }
-
-    return toPalace.hasOneOf(stars);
+      throw new Error("STUB");
   };
 
   notFlyTo = (to: number | PalaceName, withMutagens: Mutagen | Mutagen[]) => {
-    const toPalace = this.astrolabe()?.palace(to);
-
-    if (!toPalace) {
-      return false;
-    }
-
-    const { heavenlyStem } = this;
-    const stars = mutagensToStars(heavenlyStem, withMutagens);
-
-    if (!stars || !stars.length) {
-      return true;
-    }
-
-    return toPalace.notHave(stars);
+      throw new Error("STUB");
   };
 
   selfMutaged = (withMutagens: Mutagen | Mutagen[]) => {
-    const { heavenlyStem } = this;
-    const stars = mutagensToStars(heavenlyStem, withMutagens);
-
-    return this.has(stars);
+      throw new Error("STUB");
   };
 
   selfMutagedOneOf = (withMutagens?: Mutagen[]) => {
-    let muts: Mutagen | Mutagen[] = [];
-
-    if (!withMutagens || !withMutagens.length) {
-      muts = ['禄', '权', '科', '忌'];
-    } else {
-      muts = withMutagens;
-    }
-
-    const { heavenlyStem } = this;
-    const stars = mutagensToStars(heavenlyStem, muts);
-
-    return this.hasOneOf(stars);
+      throw new Error("STUB");
   };
 
   notSelfMutaged = (withMutagens?: Mutagen | Mutagen[]) => {
-    let muts: Mutagen | Mutagen[] = [];
-
-    if (!withMutagens || !withMutagens.length) {
-      muts = ['禄', '权', '科', '忌'];
-    } else {
-      muts = withMutagens;
-    }
-
-    const { heavenlyStem } = this;
-    const stars = mutagensToStars(heavenlyStem, muts);
-
-    return this.notHave(stars);
+      throw new Error("STUB");
   };
 
   mutagedPlaces = () => {
-    const { heavenlyStem } = this;
-    const astrolabe = this.astrolabe();
-
-    if (!astrolabe) {
-      return [];
-    }
-
-    const stars = mutagensToStars(heavenlyStem, ['禄', '权', '科', '忌']);
-
-    return stars.map((star) => astrolabe.star(star).palace());
+      throw new Error("STUB");
   };
 }

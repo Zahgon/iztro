@@ -54,32 +54,11 @@ export const getMajorStar = (param: AstrolabeParam) => {
   ] as const;
 
   ziweiGroup.forEach((s, i) => {
-    // 安紫微星系，起始宫逆时针安
-    if (s !== '') {
-      stars[fixIndex(ziweiIndex - i)].push(
-        new FunctionalStar({
-          name: t(s),
-          type: 'major',
-          scope: 'origin',
-          brightness: getBrightness(t(s), fixIndex(ziweiIndex - i)),
-          mutagen: getMutagen(t(s), yearly[0]),
-        }),
-      );
-    }
+      throw new Error("STUB");
   });
 
   tianfuGroup.forEach((s, i) => {
-    if (s !== '') {
-      stars[fixIndex(tianfuIndex + i)].push(
-        new FunctionalStar({
-          name: t(s),
-          type: 'major',
-          scope: 'origin',
-          brightness: getBrightness(t(s), fixIndex(tianfuIndex + i)),
-          mutagen: getMutagen(t(s), yearly[0]),
-        }),
-      );
-    }
+      throw new Error("STUB");
   });
 
   return stars;

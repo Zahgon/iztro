@@ -67,13 +67,10 @@ export class FunctionalSurpalaces implements IFunctionalSurpalaces {
     this.career = career;
   }
 
-  have = (stars: StarName[]): boolean => isSurroundedByStars(this, stars);
-  notHave = (stars: StarName[]): boolean => notSurroundedByStars(this, stars);
-  haveOneOf = (stars: StarName[]): boolean => isSurroundedByOneOfStars(this, stars);
+  have = (stars: StarName[]): boolean => { throw new Error("STUB"); };
+  notHave = (stars: StarName[]): boolean => { throw new Error("STUB"); };
+  haveOneOf = (stars: StarName[]): boolean => { throw new Error("STUB"); };
   haveMutagen = (mutagen: Mutagen): boolean =>
-    this.target.hasMutagen(mutagen) ||
-    this.opposite.hasMutagen(mutagen) ||
-    this.wealth.hasMutagen(mutagen) ||
-    this.career.hasMutagen(mutagen);
-  notHaveMutagen = (mutagen: Mutagen) => !this.haveMutagen(mutagen);
+    { throw new Error("STUB"); };
+  notHaveMutagen = (mutagen: Mutagen) => { throw new Error("STUB"); };
 }
